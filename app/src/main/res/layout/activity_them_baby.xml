@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ThemBabyActivity">
+
+    <TextView
+        android:id="@+id/headerAddBaby"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="Thêm Thông Tin Bé"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/txtLabelTenBe"
+        android:layout_below="@id/headerAddBaby"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Tên Bé:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Nhập tên bé"
+        android:id="@+id/edtBabyName"
+        android:layout_below="@id/txtLabelTenBe"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <TextView
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:id="@+id/txtLabelGioiTinh"
+        android:layout_below="@id/edtBabyName"
+        android:text="Giới Tính: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:padding="10dp"
+        android:id="@+id/radioGrouptGioiTinh"
+        android:layout_below="@id/edtBabyName"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/txtLabelGioiTinh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/ratioGioiTinhNam"
+            android:text="Nam"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/ratioGioiTinhNu"
+            android:text="Nữ"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <TextView
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:id="@+id/txtLabelNgaySinh"
+        android:layout_below="@id/txtLabelGioiTinh"
+        android:text="Ngày Sinh: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/edtHienThiNgaySinh"
+        android:layout_below="@id/txtLabelNgaySinh"
+        android:text=""
+        android:layout_width="250dp"
+        android:focusable="false"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:src="@drawable/baseline_calendar_today_black_24dp"
+        android:layout_toRightOf="@id/edtHienThiNgaySinh"
+        android:layout_below="@id/txtLabelNgaySinh"
+        android:id="@+id/imgButtonCalendar"
+        android:layout_marginLeft="20dp"
+        android:padding="10dp"
+        android:background="@null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_margin="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/avatarBaby"
+        android:src="@drawable/baby_avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/edtHienThiNgaySinh"/>
+
+    <Button
+        android:text="Thêm"
+        android:id="@+id/btnThemBaby"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/avatarBaby"
+        android:layout_width="100dp"
+        android:layout_height="60dp" />
+
+    <Button
+        android:text="Hủy"
+        android:id="@+id/btnCancelAddBaby"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/avatarBaby"
+        android:layout_width="100dp"
+        android:layout_height="60dp" />
+
+
+
+
+
+    <!--<TextView-->
+        <!--android:textSize="15sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:padding="6dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:id="@+id/txtLabelGTNam"-->
+        <!--android:layout_below="@id/edtBabyName"-->
+        <!--android:layout_toRightOf="@id/ratioGioiTinhNam"-->
+        <!--android:text="Nam"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<TextView-->
+        <!--android:textSize="15sp"-->
+        <!--android:textStyle="bold"-->
+        <!--android:padding="6dp"-->
+        <!--android:layout_marginTop="10dp"-->
+        <!--android:id="@+id/txtLabelGTNu"-->
+        <!--android:layout_below="@id/edtBabyName"-->
+        <!--android:layout_toRightOf="@id/ratioGioiTinhNu"-->
+        <!--android:text="Nữ"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+
+</RelativeLayout>

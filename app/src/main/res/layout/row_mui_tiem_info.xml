@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#a9ecb5"
+    android:layout_height="80dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:paddingTop="2dp"
+            android:paddingLeft="10dp"
+            android:textColor="#CC0000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Viêm Gan B - Mũi 2/5"
+            android:id="@+id/TxtTenMuiTiem"
+            android:layout_width="match_parent"
+            android:layout_weight="4"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Thời Gian Tiêm: 08/01/2019"
+            android:id="@+id/TxtThoiGianTiem"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Đã hẹn giờ: 07/01/2019 - 08:00:00"
+            android:id="@+id/TxtHenGio"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

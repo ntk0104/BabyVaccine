@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_beyeu"
+        android:icon="@drawable/baseline_child_care_white_24dp"
+        android:title="@string/nav_beyeu" />
+    <item
+        android:id="@+id/nav_sotiem"
+        android:icon="@drawable/baseline_bookmarks_white_24dp"
+        android:title="@string/nav_sotiem" />
+    <item
+        android:id="@+id/nav_tramtiemchung"
+        android:icon="@drawable/baseline_place_white_24dp"
+        android:title="@string/nav_tramtiemchung" />
+</menu>

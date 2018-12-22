@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="10"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#E8E8E8"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:src="@drawable/baby_avatar"
+        android:id="@+id/ImgBabyAvatar"
+        android:layout_weight="2.5"
+        android:layout_width="0dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_weight="6.5"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:paddingTop="2dp"
+            android:paddingLeft="10dp"
+            android:textColor="#CC0000"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="Nguyễn Tuấn Kiệt"
+            android:id="@+id/TxtBabyName"
+            android:layout_width="match_parent"
+            android:layout_weight="4"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:id="@+id/TxtBabyBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:paddingLeft="10dp"
+            android:text="Ngày sinh: 15 / 09 / 2018"
+            android:textColor="#3333FF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textColor="#3333FF"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Tuổi: 18 tháng"
+            android:id="@+id/TxtBabyAge"
+            android:layout_width="match_parent"
+            android:layout_weight="3"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:src="@drawable/icon_setting"
+        android:background="@null"
+        android:id="@+id/BtnBabySetting"
+        android:scaleType="centerInside"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

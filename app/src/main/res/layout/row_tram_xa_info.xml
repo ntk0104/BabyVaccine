@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="10"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="#f5e9e9"
+    android:layout_height="80dp">
+
+
+    <LinearLayout
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:layout_width="0dp"
+        android:layout_height="80dp">
+
+        <TextView
+            android:paddingTop="2dp"
+            android:paddingLeft="10dp"
+            android:textColor="#CC0000"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="Sở Y Tế Quận 3"
+            android:id="@+id/TxtTenTramXa"
+            android:layout_width="match_parent"
+            android:layout_weight="4.5"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Đường Lũy Bán Bích - Phường Phú Thạnh"
+            android:id="@+id/TxtDuongVaPhuong"
+            android:layout_width="match_parent"
+            android:layout_weight="2.75"
+            android:layout_height="0dp" />
+
+        <TextView
+            android:paddingLeft="10dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:text="Quận Tân Phú"
+            android:id="@+id/TxtQuan"
+            android:layout_width="match_parent"
+            android:layout_weight="2.75"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:src="@drawable/ggmap_icon"
+        android:background="@null"
+        android:id="@+id/BtnGoogleMap"
+        android:scaleType="centerInside"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="80dp" />
+
+</LinearLayout>
