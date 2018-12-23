@@ -62,6 +62,7 @@ public class BeYeuFragment extends Fragment {
         //Receive the ID of user logged in
         userID = bundle.getString("userid");
         GetChildren(userID);
+        ImportVaccinForNewBaby();
         Log.d("Track", "UserID at BeYeuFragment:" + userID);
 
 
@@ -128,6 +129,34 @@ public class BeYeuFragment extends Fragment {
 
 
         };
+        //set to avoid Volley send request multiple times
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    private void ImportVaccinForNewBaby(){
+        String url = "https://babyvacxin.azurewebsites.net/api/InsertVaccineNewBaby?code=68auRUCgV6IdIdSIOvAnxsQasNkDpiYupYtH3QbsOH/dFaiwuYBflQ==";
+        Log.d("Track", "Registering new user");
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Track", "Response from ImportVaccinForNewBaby :" + response);
+
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Track", "Response from ImportVaccinForNewBaby :"+error);
+                    }
+                }
+        );
         //set to avoid Volley send request multiple times
         jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(jsonObjectRequest);
