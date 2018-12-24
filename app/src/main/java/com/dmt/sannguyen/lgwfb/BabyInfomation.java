@@ -43,11 +43,14 @@ public class BabyInfomation extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
+
+        final String userID = bundle.getString("userid");
         final int babyid = bundle.getInt("babyid");
         String babyName = bundle.getString("tenbaby");
         String gioitinhBaby = bundle.getString("gioitinh");
         String ngaysinhBaby = bundle.getString("ngaysinh");
 
+        Log.d("Track", "userid " + userID);
         Log.d("Track", "BaybyID: " + babyid);
         Log.d("Track", "BaybyName: " + babyName);
         Log.d("Track", "Gioi tinh BABY:  " + gioitinhBaby);
@@ -68,7 +71,21 @@ public class BabyInfomation extends AppCompatActivity {
         btnXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                XoaBaBy(babyid);
+                //please add loading
+                XoaBaBy(babyid);
+                Intent intent1 = new Intent(BabyInfomation.this, MainActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("userid", userID);
+                Log.d("Track", "Before go to Main in XoaBaby: userid = " + userID);
+                intent1.putExtras(bundle1);
+                startActivity(intent1);
+            }
+        });
+
+        btnHuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
