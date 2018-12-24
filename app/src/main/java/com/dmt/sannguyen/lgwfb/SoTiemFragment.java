@@ -105,6 +105,7 @@ public class SoTiemFragment extends Fragment {
         btnTatCa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getAllVaccines(ID_Selected_Baby);
                 //Change color for text in button
                 btnTatCa.setTextColor(Color.rgb(255, 0, 0));
                 btnDaTiem.setTextColor(Color.rgb(255,255,255));
@@ -116,6 +117,7 @@ public class SoTiemFragment extends Fragment {
         btnDaTiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getAllVaccinesDaTiem(ID_Selected_Baby);
                 //Change color for text in button
                 btnDaTiem.setTextColor(Color.rgb(255, 0, 0));
                 btnTatCa.setTextColor(Color.rgb(255,255,255));
@@ -127,6 +129,7 @@ public class SoTiemFragment extends Fragment {
         btnQuaHan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getAllVaccinesQuaHan(ID_Selected_Baby);
                 //Change color for text in button
                 btnQuaHan.setTextColor(Color.rgb(255, 0, 0));
                 btnTatCa.setTextColor(Color.rgb(255,255,255));
@@ -166,6 +169,7 @@ public class SoTiemFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+
     // Get list children based userid
     private void GetChildren(final String userid){
         String url = "https://babyvacxin.azurewebsites.net/api/GetUserChildren?code=Hv47n04faQgtp0eJdr5cmTjE7Af6aJJUAdmOKxqI1WyYmM8bPYwDdA==";
@@ -186,8 +190,9 @@ public class SoTiemFragment extends Fragment {
                                 BeYeu beYeu = new BeYeu(baby.getInt("BabyID"), baby.getString("Name"), baby.getString("DateOfBirth"), baby.getString("Avatar"), baby.getString("Gender"), baby.getInt("Age_Hour"), baby.getString("Age_Display"));
                                 beYeuArrayList.add(beYeu);
                                 tenBeYeuArrayList.add(baby.getString("Name"));
+                                ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
                             }
-                            ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
+
                             Log.d("Track", "Inital value for ID_Selected_Baby : " + ID_Selected_Baby);
                             spinnerAdapter.notifyDataSetChanged();
 
@@ -219,6 +224,7 @@ public class SoTiemFragment extends Fragment {
     }
 
     private void getAllVaccines(final int babyID) {
+        muiTiemArrayList.clear();
         Log.d("Track", "babyID got in getAllVaccines : " + babyID);
         String url = "https://babyvacxin.azurewebsites.net/api/GetAllVaccines?code=3deL5N8DI0R9HBVTZfsEJy8S7/DUMWBGY0TayIliXEUJdZLB1jD4fQ==";
         Log.d("Track", "Getting list all vaccines");
@@ -235,27 +241,27 @@ public class SoTiemFragment extends Fragment {
                             JSONArray listAllVaccines = response.getJSONArray("AllVaccines");
                             for (int i = 0; i < listAllVaccines.length(); ++i){
                                 JSONObject muitiem = listAllVaccines.getJSONObject(i);
-                                Log.d("Track", "Import Mui Tiem to muiTiemArrayList");
+//                                Log.d("Track", "Import Mui Tiem to muiTiemArrayList");
                                 int STTMuiTiem = muitiem.getInt("STTMuiTiem");
-                                Log.d("Track", "STTMuiTiem : " + STTMuiTiem);
+//                                Log.d("Track", "STTMuiTiem : " + STTMuiTiem);
                                 int BabyID = muitiem.getInt("BabyID");
-                                Log.d("Track", "BabyID : " + BabyID);
+//                                Log.d("Track", "BabyID : " + BabyID);
                                 int MuiTiemID = muitiem.getInt("MuiTiemID");
-                                Log.d("Track", "MuiTiemID : " + MuiTiemID);
+//                                Log.d("Track", "MuiTiemID : " + MuiTiemID);
                                 String ThoiGianDuKien = muitiem.getString("ThoiGianDuKien");
-                                Log.d("Track", "ThoiGianDuKien : " + ThoiGianDuKien);
+//                                Log.d("Track", "ThoiGianDuKien : " + ThoiGianDuKien);
                                 String ThoiGianTiem = muitiem.getString("ThoiGianTiem");
-                                Log.d("Track", "ThoiGianTiem : " + ThoiGianTiem);
+//                                Log.d("Track", "ThoiGianTiem : " + ThoiGianTiem);
                                 String ThoiGianHenGio = muitiem.getString("ThoiGianHenGio");
-                                Log.d("Track", "ThoiGianHenGio : " + ThoiGianHenGio);
+//                                Log.d("Track", "ThoiGianHenGio : " + ThoiGianHenGio);
                                 String GhiChu = muitiem.getString("GhiChu");
-                                Log.d("Track", "GhiChu : " + GhiChu);
+//                                Log.d("Track", "GhiChu : " + GhiChu);
                                 String BabyName = muitiem.getString("BabyName");
-                                Log.d("Track", "BabyName : " + BabyName);
+//                                Log.d("Track", "BabyName : " + BabyName);
                                 String MuiTiemName = muitiem.getString("MuiTiemName");
-                                Log.d("Track", "MuiTiemName : " + MuiTiemName);
+//                                Log.d("Track", "MuiTiemName : " + MuiTiemName);
                                 String StatusMuiTiem = muitiem.getString("StatusMuiTiem");
-                                Log.d("Track", "StatusMuiTiem : " + StatusMuiTiem);
+//                                Log.d("Track", "StatusMuiTiem : " + StatusMuiTiem);
                                 MuiTiem muiTiem = new MuiTiem(STTMuiTiem, BabyID, MuiTiemID, ThoiGianDuKien, ThoiGianTiem, ThoiGianHenGio, GhiChu, BabyName, MuiTiemName, StatusMuiTiem);
 //                                Log.d("Track", muiTiem.toString());
                                 muiTiemArrayList.add(muiTiem);
@@ -273,6 +279,155 @@ public class SoTiemFragment extends Fragment {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Track", "Response from getAllVaccines :"+error);
+                    }
+                }
+        ){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("babyid", String.valueOf(babyID));
+                return params;
+            }
+
+
+        };
+        //set to avoid Volley send request multiple times
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    //Get All Mui Tiem Qua Han and set to List View
+    private void getAllVaccinesQuaHan(final int babyID) {
+        muiTiemArrayList.clear();
+        Log.d("Track", "babyID got in getAllVaccinesQuaHan : " + babyID);
+        String url = "https://babyvacxin.azurewebsites.net/api/GetAllVaccinesQuaHan?code=pfCoLKkf5TJnB0Wjag7aoOqlgn0rVwkcfRJI/GMoenICEOw/JNpiRQ==";
+        Log.d("Track", "Getting list all QuaHan");
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Track", "Response from getAllVaccinesQuaHan :" + response);
+                        try {
+                            JSONArray listAllVaccines = response.getJSONArray("ListQuaHan");
+                            for (int i = 0; i < listAllVaccines.length(); ++i){
+                                JSONObject muitiem = listAllVaccines.getJSONObject(i);
+//                                Log.d("Track", "Import Mui Tiem to muiTiemArrayList");
+                                int STTMuiTiem = muitiem.getInt("STTMuiTiem");
+//                                Log.d("Track", "STTMuiTiem : " + STTMuiTiem);
+                                int BabyID = muitiem.getInt("BabyID");
+//                                Log.d("Track", "BabyID : " + BabyID);
+                                int MuiTiemID = muitiem.getInt("MuiTiemID");
+//                                Log.d("Track", "MuiTiemID : " + MuiTiemID);
+                                String ThoiGianDuKien = muitiem.getString("ThoiGianDuKien");
+//                                Log.d("Track", "ThoiGianDuKien : " + ThoiGianDuKien);
+                                String ThoiGianTiem = muitiem.getString("ThoiGianTiem");
+//                                Log.d("Track", "ThoiGianTiem : " + ThoiGianTiem);
+                                String ThoiGianHenGio = muitiem.getString("ThoiGianHenGio");
+//                                Log.d("Track", "ThoiGianHenGio : " + ThoiGianHenGio);
+                                String GhiChu = muitiem.getString("GhiChu");
+//                                Log.d("Track", "GhiChu : " + GhiChu);
+                                String BabyName = muitiem.getString("BabyName");
+//                                Log.d("Track", "BabyName : " + BabyName);
+                                String MuiTiemName = muitiem.getString("MuiTiemName");
+//                                Log.d("Track", "MuiTiemName : " + MuiTiemName);
+                                String StatusMuiTiem = muitiem.getString("StatusMuiTiem");
+//                                Log.d("Track", "StatusMuiTiem : " + StatusMuiTiem);
+                                MuiTiem muiTiem = new MuiTiem(STTMuiTiem, BabyID, MuiTiemID, ThoiGianDuKien, ThoiGianTiem, ThoiGianHenGio, GhiChu, BabyName, MuiTiemName, StatusMuiTiem);
+//                                Log.d("Track", muiTiem.toString());
+                                muiTiemArrayList.add(muiTiem);
+                            }
+                            Log.d("Track", "muiTiemArrayList size value: "+ muiTiemArrayList.size());
+                            soTiemAdapter.notifyDataSetChanged();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Track", "Response from getAllVaccinesQuaHan :"+error);
+                    }
+                }
+        ){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("babyid", String.valueOf(babyID));
+                return params;
+            }
+
+
+        };
+        //set to avoid Volley send request multiple times
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    //Get All Vaccines Da Tiem
+    //Get All Mui Tiem Qua Han and set to List View
+    private void getAllVaccinesDaTiem(final int babyID) {
+        muiTiemArrayList.clear();
+        Log.d("Track", "babyID got in getAllVaccinesDaTiem : " + babyID);
+        String url = "https://babyvacxin.azurewebsites.net/api/GetListDaTiem?code=bYRaHwsapits6tSntuOgJMPyrqYVqQr7RrYE/LiZSl785NZhw2gbjw==";
+        Log.d("Track", "Getting list all DaTiem");
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("Track", "Response from getAllVaccinesDaTiem :" + response);
+                        try {
+                            JSONArray listAllVaccines = response.getJSONArray("ListDaTiem");
+                            for (int i = 0; i < listAllVaccines.length(); ++i){
+                                JSONObject muitiem = listAllVaccines.getJSONObject(i);
+//                                Log.d("Track", "Import Mui Tiem to muiTiemArrayList");
+                                int STTMuiTiem = muitiem.getInt("STTMuiTiem");
+//                                Log.d("Track", "STTMuiTiem : " + STTMuiTiem);
+                                int BabyID = muitiem.getInt("BabyID");
+//                                Log.d("Track", "BabyID : " + BabyID);
+                                int MuiTiemID = muitiem.getInt("MuiTiemID");
+//                                Log.d("Track", "MuiTiemID : " + MuiTiemID);
+                                String ThoiGianDuKien = muitiem.getString("ThoiGianDuKien");
+//                                Log.d("Track", "ThoiGianDuKien : " + ThoiGianDuKien);
+                                String ThoiGianTiem = muitiem.getString("ThoiGianTiem");
+//                                Log.d("Track", "ThoiGianTiem : " + ThoiGianTiem);
+                                String ThoiGianHenGio = muitiem.getString("ThoiGianHenGio");
+//                                Log.d("Track", "ThoiGianHenGio : " + ThoiGianHenGio);
+                                String GhiChu = muitiem.getString("GhiChu");
+//                                Log.d("Track", "GhiChu : " + GhiChu);
+                                String BabyName = muitiem.getString("BabyName");
+//                                Log.d("Track", "BabyName : " + BabyName);
+                                String MuiTiemName = muitiem.getString("MuiTiemName");
+//                                Log.d("Track", "MuiTiemName : " + MuiTiemName);
+                                String StatusMuiTiem = muitiem.getString("StatusMuiTiem");
+//                                Log.d("Track", "StatusMuiTiem : " + StatusMuiTiem);
+                                MuiTiem muiTiem = new MuiTiem(STTMuiTiem, BabyID, MuiTiemID, ThoiGianDuKien, ThoiGianTiem, ThoiGianHenGio, GhiChu, BabyName, MuiTiemName, StatusMuiTiem);
+//                                Log.d("Track", muiTiem.toString());
+                                muiTiemArrayList.add(muiTiem);
+                            }
+                            Log.d("Track", "muiTiemArrayList size value: "+ muiTiemArrayList.size());
+                            soTiemAdapter.notifyDataSetChanged();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("Track", "Response from getAllVaccinesDaTiem :"+error);
                     }
                 }
         ){
