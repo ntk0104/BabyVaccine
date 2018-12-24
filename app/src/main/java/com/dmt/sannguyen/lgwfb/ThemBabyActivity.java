@@ -84,6 +84,7 @@ public class ThemBabyActivity extends AppCompatActivity {
                 if(baby_name.length() > 0 && ngaysinh.length() > 0 ){
                     Log.d("Track", "Adding new baby with data..." + baby_name + " " + gender + " " + ngaysinh);
                     AddNewBaby(baby_name, ngaysinh, gender, userid);
+                    //please add loading
                     Bundle bundle = new Bundle();
                     bundle.putString("userid", userid);
                     //send bundle data to BeYeuActivity activity
