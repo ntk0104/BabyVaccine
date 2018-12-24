@@ -29,7 +29,7 @@
 
     <EditText
         android:hint="Nhập tên bé"
-        android:id="@+id/edtBabyName"
+        android:id="@+id/edtBabyName1"
         android:layout_below="@id/txtLabelTenBe"
         android:layout_width="match_parent"
         android:layout_height="45dp" />
@@ -39,7 +39,7 @@
         android:textStyle="bold"
         android:padding="10dp"
         android:id="@+id/txtLabelGioiTinh"
-        android:layout_below="@id/edtBabyName"
+        android:layout_below="@id/edtBabyName1"
         android:text="Giới Tính: "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -47,7 +47,7 @@
     <RadioGroup
         android:padding="10dp"
         android:id="@+id/radioGrouptGioiTinh"
-        android:layout_below="@id/edtBabyName"
+        android:layout_below="@id/edtBabyName1"
         android:orientation="horizontal"
         android:layout_toRightOf="@id/txtLabelGioiTinh"
         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
-        android:id="@+id/edtHienThiNgaySinh"
+        android:id="@+id/edtHienThiNgaySinh1"
         android:layout_below="@id/txtLabelNgaySinh"
         android:text=""
         android:layout_width="250dp"
@@ -90,7 +90,7 @@
 
     <ImageButton
         android:src="@drawable/baseline_calendar_today_black_24dp"
-        android:layout_toRightOf="@id/edtHienThiNgaySinh"
+        android:layout_toRightOf="@id/edtHienThiNgaySinh1"
         android:layout_below="@id/txtLabelNgaySinh"
         android:id="@+id/imgButtonCalendar"
         android:layout_marginLeft="20dp"
@@ -106,7 +106,7 @@
         android:src="@drawable/baby_avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_below="@id/edtHienThiNgaySinh"/>
+        android:layout_below="@id/edtHienThiNgaySinh1"/>
 
     <Button
         android:text="Thêm"

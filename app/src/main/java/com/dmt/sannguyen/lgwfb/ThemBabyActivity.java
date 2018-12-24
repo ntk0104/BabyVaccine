@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.LoginFilter;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -107,9 +106,9 @@ public class ThemBabyActivity extends AppCompatActivity {
     }
 
     private void AnhXa() {
-        edtBabyName = findViewById(R.id.edtBabyName);
+        edtBabyName = findViewById(R.id.edtBabyName1);
         radioGroupGioiTinh = findViewById(R.id.radioGrouptGioiTinh);
-        edtHienThiNgaySinh = findViewById(R.id.edtHienThiNgaySinh);
+        edtHienThiNgaySinh = findViewById(R.id.edtHienThiNgaySinh1);
         imgCalendar = findViewById(R.id.imgButtonCalendar);
         btnThem = findViewById(R.id.btnThemBaby);
         btnHuy = findViewById(R.id.btnCancelAddBaby);

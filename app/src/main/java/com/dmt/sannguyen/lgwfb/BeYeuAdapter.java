@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -50,11 +51,12 @@ public class BeYeuAdapter extends BaseAdapter {
         TextView baby_Name;
         TextView baby_birthday;
         TextView baby_age;
+        ImageButton imgBtnEditBaby;
 
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, final ViewGroup parent) {
         ViewHolder holder;
         if(convertView == null){
             holder = new ViewHolder();
@@ -64,6 +66,7 @@ public class BeYeuAdapter extends BaseAdapter {
             holder.baby_Name = convertView.findViewById(R.id.TxtBabyName);
             holder.baby_birthday = convertView.findViewById(R.id.TxtBabyBirthday);
             holder.baby_age = convertView.findViewById(R.id.TxtBabyAge);
+            holder.imgBtnEditBaby = convertView.findViewById(R.id.BtnBabySetting);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
@@ -81,6 +84,13 @@ public class BeYeuAdapter extends BaseAdapter {
         // Set ngay, thang, nam
         holder.baby_birthday.setText("Ngày sinh: " + date +"/" + month + "/" + year);
         holder.baby_age.setText("Tuổi: " + beYeu.getAge_Display());
+
+        holder.imgBtnEditBaby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(parent.getContext(), "Click in here", Toast.LENGTH_LONG).show();
+            }
+        });
 
         return convertView;
     }

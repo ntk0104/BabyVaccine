@@ -40,7 +40,8 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".ThemBabyActivity"></activity>
+        <activity android:name=".ThemBabyActivity" />
+        <activity android:name=".BabyInfomation"></activity>
     </application>
 
 </manifest>
