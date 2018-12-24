@@ -157,7 +157,12 @@ public class SoTiemFragment extends Fragment {
                 Log.d("Track", "Item selected:" + item.toString() + " position: " + selectedPosition);
                 ID_Selected_Baby = beYeuArrayList.get(selectedPosition).getBabyID();
                 Log.d("Track", "Show ID selected Item: " + ID_Selected_Baby);
-
+                // Set to Tat Ca cho baby moi
+                getAllVaccines(ID_Selected_Baby);
+                //Change color for text in button
+                btnTatCa.setTextColor(Color.rgb(255, 0, 0));
+                btnDaTiem.setTextColor(Color.rgb(255,255,255));
+                btnQuaHan.setTextColor(Color.rgb(255,255,255));
             }
 
             @Override
