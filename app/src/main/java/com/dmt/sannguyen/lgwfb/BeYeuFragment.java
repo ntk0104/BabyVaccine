@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -88,6 +89,24 @@ public class BeYeuFragment extends Fragment {
         ListView listviewBaby = view.findViewById(R.id.listviewBaby);
         btnLogOut=view.findViewById(R.id.LogOutButton);
         listviewBaby.setAdapter(adapter);
+
+        listviewBaby.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), BabyInfomation.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("babyid", beYeuArrayList.get(position).getBabyID());
+                bundle.putString("tenbaby", beYeuArrayList.get(position).getName());
+                bundle.putString("gioitinh", beYeuArrayList.get(position).getGender());
+                bundle.putString("ngaysinh", beYeuArrayList.get(position).getDateOfBirth());
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
+            }
+        });
+
         logOut();
     }
 

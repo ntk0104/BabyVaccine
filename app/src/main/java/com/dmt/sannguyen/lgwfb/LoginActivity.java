@@ -58,7 +58,6 @@ public class LoginActivity extends AppCompatActivity {
             Log.d("Track", "onCreate: da dang nap : id = " + profile.getId());
             nextActivity(profile.getId());
             loading();
-
         }
         else{
             loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
