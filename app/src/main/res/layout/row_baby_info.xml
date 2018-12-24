@@ -15,7 +15,7 @@
         android:layout_height="100dp" />
 
     <LinearLayout
-        android:layout_weight="6.5"
+        android:layout_weight="7.5"
         android:orientation="vertical"
         android:weightSum="10"
         android:layout_width="0dp"
@@ -58,13 +58,5 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:src="@drawable/icon_setting"
-        android:background="@null"
-        android:id="@+id/BtnBabySetting"
-        android:scaleType="centerInside"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent" />
 
 </LinearLayout>

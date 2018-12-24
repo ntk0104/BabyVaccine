@@ -1,6 +1,7 @@
 package com.dmt.sannguyen.lgwfb;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,6 @@ public class BeYeuAdapter extends BaseAdapter {
         TextView baby_Name;
         TextView baby_birthday;
         TextView baby_age;
-        ImageButton imgBtnEditBaby;
 
     }
 
@@ -66,7 +66,6 @@ public class BeYeuAdapter extends BaseAdapter {
             holder.baby_Name = convertView.findViewById(R.id.TxtBabyName);
             holder.baby_birthday = convertView.findViewById(R.id.TxtBabyBirthday);
             holder.baby_age = convertView.findViewById(R.id.TxtBabyAge);
-            holder.imgBtnEditBaby = convertView.findViewById(R.id.BtnBabySetting);
             convertView.setTag(holder);
         }else{
             holder = (ViewHolder) convertView.getTag();
@@ -84,13 +83,6 @@ public class BeYeuAdapter extends BaseAdapter {
         // Set ngay, thang, nam
         holder.baby_birthday.setText("Ngày sinh: " + date +"/" + month + "/" + year);
         holder.baby_age.setText("Tuổi: " + beYeu.getAge_Display());
-
-        holder.imgBtnEditBaby.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(parent.getContext(), "Click in here", Toast.LENGTH_LONG).show();
-            }
-        });
 
         return convertView;
     }
