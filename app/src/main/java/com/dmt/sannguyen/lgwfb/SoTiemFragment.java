@@ -1,8 +1,11 @@
 package com.dmt.sannguyen.lgwfb;
 
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -105,6 +108,7 @@ public class SoTiemFragment extends Fragment {
         btnTatCa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loading();
                 getAllVaccines(ID_Selected_Baby);
                 //Change color for text in button
                 btnTatCa.setTextColor(Color.rgb(255, 0, 0));
@@ -117,6 +121,7 @@ public class SoTiemFragment extends Fragment {
         btnDaTiem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loading();
                 getAllVaccinesDaTiem(ID_Selected_Baby);
                 //Change color for text in button
                 btnDaTiem.setTextColor(Color.rgb(255, 0, 0));
@@ -129,6 +134,7 @@ public class SoTiemFragment extends Fragment {
         btnQuaHan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loading();
                 getAllVaccinesQuaHan(ID_Selected_Baby);
                 //Change color for text in button
                 btnQuaHan.setTextColor(Color.rgb(255, 0, 0));
@@ -158,6 +164,7 @@ public class SoTiemFragment extends Fragment {
                 ID_Selected_Baby = beYeuArrayList.get(selectedPosition).getBabyID();
                 Log.d("Track", "Show ID selected Item: " + ID_Selected_Baby);
                 // Set to Tat Ca cho baby moi
+                loading();
                 getAllVaccines(ID_Selected_Baby);
                 //Change color for text in button
                 btnTatCa.setTextColor(Color.rgb(255, 0, 0));
@@ -452,6 +459,23 @@ public class SoTiemFragment extends Fragment {
 
     //Get All Mui Tiem of user
 //    private void Get
+    private void loading()
+    {
+        final ProgressDialog progress = new ProgressDialog(getActivity());
+        progress.setTitle("Loading");
+        progress.setMessage("Please wait...");
+        progress.show();
 
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 2000);
+    }
 
 }
