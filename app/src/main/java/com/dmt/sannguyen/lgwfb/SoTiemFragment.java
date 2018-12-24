@@ -3,6 +3,7 @@ package com.dmt.sannguyen.lgwfb;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -175,6 +176,23 @@ public class SoTiemFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+
+        listViewMuiTiem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), HenGio.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("babyid", beYeuArrayList.get(position).getBabyID());
+                bundle.putString("tenbaby", beYeuArrayList.get(position).getName());
+                bundle.putString("gioitinh", beYeuArrayList.get(position).getGender());
+                bundle.putString("ngaysinh", beYeuArrayList.get(position).getDateOfBirth());
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
             }
         });
 
