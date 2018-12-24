@@ -41,7 +41,8 @@
 
         <activity android:name=".MainActivity" />
         <activity android:name=".ThemBabyActivity" />
-        <activity android:name=".BabyInfomation"></activity>
+        <activity android:name=".BabyInfomation" />
+        <activity android:name=".HenGio"></activity>
     </application>
 
 </manifest>

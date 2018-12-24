@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imgButtonSetTime"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HenGio">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="10"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <EditText
+                android:id="@+id/headerTenMuiTiem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#faf8f8"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Ngày dự kiến"
+                    android:textSize="12dp"/>
+                <EditText
+                    android:id="@+id/edtNgayDuKien"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Ngày hẹn"
+                    android:textSize="12dp"/>
+                <EditText
+                    android:id="@+id/edtNgayHen"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center" />
+                <ImageView
+                    android:id="@+id/btnNgayHen"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:src="@drawable/baseline_calendar_today_black_24dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Giờ hẹn"
+                    android:textSize="12dp"/>
+                <EditText
+                    android:id="@+id/edtGioHen"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:gravity="center" />
+                <ImageView
+                    android:id="@+id/btnGioHen"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@null"
+                    android:src="@drawable/baseline_calendar_today_black_24dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Đã tiêm"
+                    android:textSize="12dp"/>
+                <CheckBox
+                    android:id="@+id/chkbDaTiem"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:text="Ghi chú"
+                    android:textSize="12dp"/>
+                <EditText
+                    android:id="@+id/edtGhiChu"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="8"
+                    android:gravity="center" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/btnHuy"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:text="Hủy"/>
+                <Button
+                    android:id="@+id/bntLuu"
+                    android:layout_width="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:text="Lưu"/>
+            </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
