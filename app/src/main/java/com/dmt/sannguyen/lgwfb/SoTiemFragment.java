@@ -185,10 +185,17 @@ public class SoTiemFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), HenGio.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putInt("babyid", beYeuArrayList.get(position).getBabyID());
-                bundle.putString("tenbaby", beYeuArrayList.get(position).getName());
-                bundle.putString("gioitinh", beYeuArrayList.get(position).getGender());
-                bundle.putString("ngaysinh", beYeuArrayList.get(position).getDateOfBirth());
+                bundle.putString("userid", userID);
+                bundle.putInt("STTMuiTiem", muiTiemArrayList.get(position).getID_MuiTiem());
+                bundle.putInt("BabyID", muiTiemArrayList.get(position).getID_Baby());
+                bundle.putInt("MuiTiemID", muiTiemArrayList.get(position).getID_Vaccine());
+                bundle.putString("ThoiGianDuKien", muiTiemArrayList.get(position).getThoiGianDuKien());
+                bundle.putString("ThoiGianTiem", muiTiemArrayList.get(position).getThoiGianTiem());
+                bundle.putString("ThoiGianHenGio", muiTiemArrayList.get(position).getThoiGianHenGio());
+                bundle.putString("GhiChu", muiTiemArrayList.get(position).getGhiChu());
+                bundle.putString("BabyName", muiTiemArrayList.get(position).getBabyName());
+                bundle.putString("MuiTiemName", muiTiemArrayList.get(position).getMuiTiemName());
+                bundle.putString("StatusMuiTiem", muiTiemArrayList.get(position).getStatusMuiTiem());
 
                 intent.putExtras(bundle);
 

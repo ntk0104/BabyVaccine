@@ -21,6 +21,7 @@
             android:weightSum="10">
             <EditText
                 android:id="@+id/headerTenMuiTiem"
+                android:focusable="false"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="10"
@@ -50,6 +51,7 @@
                     android:textSize="12dp"/>
                 <EditText
                     android:id="@+id/edtNgayDuKien"
+                    android:focusable="false"
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
                     android:layout_weight="8"
@@ -68,6 +70,7 @@
                     android:textSize="12dp"/>
                 <EditText
                     android:id="@+id/edtNgayHen"
+                    android:focusable="false"
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
                     android:layout_weight="6"
@@ -95,6 +98,7 @@
                     android:id="@+id/edtGioHen"
                     android:layout_width="5dp"
                     android:layout_height="match_parent"
+                    android:focusable="false"
                     android:layout_weight="6"
                     android:gravity="center" />
                 <ImageButton
