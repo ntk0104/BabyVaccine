@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -21,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.facebook.login.LoginManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +41,7 @@ public class BeYeuFragment extends Fragment {
 
     ImageView btnAddBaby;
     ListView listviewBaby;
+    Button btnLogOut;
 
     private String userID;
     ArrayList<BeYeu> beYeuArrayList;
@@ -83,7 +86,9 @@ public class BeYeuFragment extends Fragment {
             }
         });
         ListView listviewBaby = view.findViewById(R.id.listviewBaby);
+        btnLogOut=view.findViewById(R.id.LogOutButton);
         listviewBaby.setAdapter(adapter);
+        logOut();
     }
 
     private void GetChildren(final String userid){
@@ -161,6 +166,16 @@ public class BeYeuFragment extends Fragment {
         jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(jsonObjectRequest);
     }
-
+    public void logOut()
+    {
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logOut();
+                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
 }
