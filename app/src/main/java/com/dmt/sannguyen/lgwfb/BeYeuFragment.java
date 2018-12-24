@@ -96,6 +96,7 @@ public class BeYeuFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), BabyInfomation.class);
 
                 Bundle bundle = new Bundle();
+                bundle.putString("userid", userID);
                 bundle.putInt("babyid", beYeuArrayList.get(position).getBabyID());
                 bundle.putString("tenbaby", beYeuArrayList.get(position).getName());
                 bundle.putString("gioitinh", beYeuArrayList.get(position).getGender());
