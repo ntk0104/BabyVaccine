@@ -24,6 +24,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.login.widget.ProfilePictureView;
@@ -52,9 +53,17 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
         setContentView(R.layout.login);
         anhXa();
-        loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
-        setLogin_button();
+        if(AccessToken.getCurrentAccessToken() != null){
+            Profile profile = Profile.getCurrentProfile();
+            Log.d("Track", "onCreate: da dang nap : id = " + profile.getId());
+            nextActivity(profile.getId());
+            loading();
 
+        }
+        else{
+            loginButton.setReadPermissions(Arrays.asList("public_profile","email"));
+            setLogin_button();
+        }
     }
 
     // Sign in function
@@ -199,28 +208,26 @@ public class LoginActivity extends AppCompatActivity {
         if (response.equals("true")){
             Log.d("Track", "AfterCheckLogin: User da ton tai");
             //Send data to another acitivity
-            Bundle bundle = new Bundle();
-            bundle.putString("userid", userid);
-            //send bundle data to BeYeuActivity activity
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtras(bundle);
-            startActivity(intent);
+            nextActivity(userid);
 
         }else {
             Log.d("Track", "AfterCheckLogin: User chua ton tai");
             Log.d("Track", "AfterCheckLogin: Dang Ki User moi vao db");
             //Send data to another acitivity
-            Bundle bundle = new Bundle();
-            bundle.putString("userid", userid);
-            //send bundle data to BeYeuActivity activity
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtras(bundle);
-            startActivity(intent);
+            nextActivity(userid);
             RegisterNewUser(userid, first_name);
         }
 
     }
 
+    private void nextActivity(String userid) {
+        Bundle bundle = new Bundle();
+        bundle.putString("userid", userid);
+        //send bundle data to BeYeuActivity activity
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 
     private void anhXa() {
