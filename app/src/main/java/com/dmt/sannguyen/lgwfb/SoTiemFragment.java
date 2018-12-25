@@ -225,8 +225,10 @@ public class SoTiemFragment extends Fragment {
                                 BeYeu beYeu = new BeYeu(baby.getInt("BabyID"), baby.getString("Name"), baby.getString("DateOfBirth"), baby.getString("Avatar"), baby.getString("Gender"), baby.getInt("Age_Hour"), baby.getString("Age_Display"));
                                 beYeuArrayList.add(beYeu);
                                 tenBeYeuArrayList.add(baby.getString("Name"));
+                                // put in here in case new user don't have any baby won't make app trash because of null value
+                                ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
                             }
-                            ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
+
                             getAllVaccines(ID_Selected_Baby);
                             Log.d("Track", "Inital value for ID_Selected_Baby : " + ID_Selected_Baby);
                             spinnerAdapter.notifyDataSetChanged();
@@ -327,7 +329,7 @@ public class SoTiemFragment extends Fragment {
 
         };
         //set to avoid Volley send request multiple times
-        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        jsonObjectRequest.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(jsonObjectRequest);
     }
 
