@@ -84,15 +84,8 @@ public class ThemBabyActivity extends AppCompatActivity {
                 if(baby_name.length() > 0 && ngaysinh.length() > 0 ){
                     Log.d("Track", "Adding new baby with data..." + baby_name + " " + gender + " " + ngaysinh);
                     AddNewBaby(baby_name, ngaysinh, gender, userid);
-                    //please add loading
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userid", userid);
-                    //send bundle data to BeYeuActivity activity
-                    Intent intent1 = new Intent(ThemBabyActivity.this, MainActivity.class);
-                    intent1.putExtras(bundle);
-                    startActivity(intent1);
                 }else {
-                    Toast.makeText(ThemBabyActivity.this, "thieu data", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ThemBabyActivity.this, "Bạn cần điền đầy đủ thông tin", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -126,15 +119,21 @@ public class ThemBabyActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Track", "Response from RegisterNewUser :" + response);
-
+                        Log.d("Track", "Response from AddNewBaby :" + response);
+                        //please add loading
+                        Bundle bundle = new Bundle();
+                        bundle.putString("userid", userid);
+                        //send bundle data to BeYeuActivity activity
+                        Intent intent1 = new Intent(ThemBabyActivity.this, MainActivity.class);
+                        intent1.putExtras(bundle);
+                        startActivity(intent1);
 
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Track", "Response from RegisterNewUser :"+error);
+                        Log.d("Track", "Response from AddNewBaby :"+error);
                     }
                 }
         ){

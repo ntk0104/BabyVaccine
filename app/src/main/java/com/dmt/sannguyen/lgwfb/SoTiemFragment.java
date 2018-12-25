@@ -102,8 +102,6 @@ public class SoTiemFragment extends Fragment {
 
         //Change color for text in button
         btnTatCa.setTextColor(Color.rgb(255, 0, 0));
-        getAllVaccines(ID_Selected_Baby);
-
 
         // set event for btn Tat ca
         btnTatCa.setOnClickListener(new View.OnClickListener() {
@@ -227,9 +225,9 @@ public class SoTiemFragment extends Fragment {
                                 BeYeu beYeu = new BeYeu(baby.getInt("BabyID"), baby.getString("Name"), baby.getString("DateOfBirth"), baby.getString("Avatar"), baby.getString("Gender"), baby.getInt("Age_Hour"), baby.getString("Age_Display"));
                                 beYeuArrayList.add(beYeu);
                                 tenBeYeuArrayList.add(baby.getString("Name"));
-                                ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
                             }
-
+                            ID_Selected_Baby = beYeuArrayList.get(0).getBabyID();
+                            getAllVaccines(ID_Selected_Baby);
                             Log.d("Track", "Inital value for ID_Selected_Baby : " + ID_Selected_Baby);
                             spinnerAdapter.notifyDataSetChanged();
 

@@ -33,7 +33,7 @@ public class BabyInfomation extends AppCompatActivity {
     EditText edtHienThiNgaySinh;
     ImageButton imgCalendar;
     Button btnLuu, btnHuy, btnXoa;
-    String userid;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class BabyInfomation extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
 
-        final String userID = bundle.getString("userid");
+        userID = bundle.getString("userid");
         final int babyid = bundle.getInt("babyid");
         String babyName = bundle.getString("tenbaby");
         String gioitinhBaby = bundle.getString("gioitinh");
@@ -73,12 +73,7 @@ public class BabyInfomation extends AppCompatActivity {
             public void onClick(View v) {
                 //please add loading
                 XoaBaBy(babyid);
-                Intent intent1 = new Intent(BabyInfomation.this, MainActivity.class);
-                Bundle bundle1 = new Bundle();
-                bundle1.putString("userid", userID);
-                Log.d("Track", "Before go to Main in XoaBaby: userid = " + userID);
-                intent1.putExtras(bundle1);
-                startActivity(intent1);
+
             }
         });
 
@@ -104,15 +99,20 @@ public class BabyInfomation extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("Track", "Response from ImportVaccinForNewBaby :" + response);
-
+                        Log.d("Track", "Response from XoaBaBy :" + response);
+                        Bundle bundle1 = new Bundle();
+                        bundle1.putString("userid", userID);
+                        Intent intent1 = new Intent(BabyInfomation.this, MainActivity.class);
+                        Log.d("Track", "Before go to Main in XoaBaby: userid = " + userID);
+                        intent1.putExtras(bundle1);
+                        startActivity(intent1);
 
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.d("Track", "Response from ImportVaccinForNewBaby :"+error);
+                        Log.d("Track", "Response from XoaBaBy :"+error);
                     }
                 }
         ){

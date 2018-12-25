@@ -38,6 +38,7 @@ public class HenGio extends AppCompatActivity {
     CheckBox checkDaTiem;
     Button btHuy,btLuu;
     ImageButton imgNgayHen,imgGioHen;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class HenGio extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
 
-        final String userID = bundle.getString("userid");
+        userID = bundle.getString("userid");
         final int STTMuiTiem = bundle.getInt("STTMuiTiem");
         int BabyID = bundle.getInt("BabyID");
         int MuiTiemID = bundle.getInt("MuiTiemID");
@@ -167,12 +168,7 @@ public class HenGio extends AppCompatActivity {
                 int sttmuitiem = STTMuiTiem;
 
                 UpdateMuiTiem(ghichu, statusmuitiem, sttmuitiem);
-                Bundle bundle = new Bundle();
-                bundle.putString("userid", userID);
-                //send bundle data to BeYeuActivity activity
-                Intent intent1 = new Intent(HenGio.this, MainActivity.class);
-                intent1.putExtras(bundle);
-                startActivity(intent1);
+
 
             }
         });
@@ -210,7 +206,12 @@ public class HenGio extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("Track", "Response from RegisterNewUser :" + response);
-
+                        Bundle bundle = new Bundle();
+                        bundle.putString("userid", userID);
+                        //send bundle data to BeYeuActivity activity
+                        Intent intent1 = new Intent(HenGio.this, MainActivity.class);
+                        intent1.putExtras(bundle);
+                        startActivity(intent1);
 
                     }
                 },
